@@ -28,9 +28,6 @@ public class DiaryController {
     @ApiOperation("선택한 날짜의 모든 일기 데이터를 가져옴")
     @GetMapping("/read/diary")
     List<Diary> readDiary(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
-//        if(date.isAfter(LocalDate.ofYearDay(2023, 1))){
-//            throw new InvalidDate();
-//        }
         return diaryService.readDiary(date);
     }
     @ApiOperation("선택한 기간 중의 모든 일기 데이터를 가져옴")
